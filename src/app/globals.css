@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.transition-menu {
+  transition-property: transform;
+  transition-duration: 0.3s; /* Duración de la animación en segundos */
+  transition-timing-function: ease-in-out; /* Función de temporización */
+}
+/*
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -25,3 +31,4 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+*/
