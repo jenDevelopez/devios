@@ -1,15 +1,12 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
-import ListProducts from "./components/shop/listProducts"
-import Products from "./components/products/listProducts"
-import { cookies } from "next/headers"
-import Nav from "./components/navbar/Navbar"
+import Hero from "@/components/hero/hero"
+import ListProducts from "@/components/shop/listProducts"
 
 export default async function Home() {
   
   return (
-    <div className="h-screen bg-slate-700">
-      <Nav />
-      <Products />
+    <div className="h-screen ">
+      <Hero />
+      <ListProducts />
     
     </div>
   )
