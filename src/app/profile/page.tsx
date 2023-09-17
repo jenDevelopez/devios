@@ -1,6 +1,6 @@
 
 import React from 'react'
-import DataProfile from '@/components/profile/Profile'
+import DataProfile from '@/components/profile/ProfilePage'
 
 
 export default function Profile() {

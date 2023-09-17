@@ -1,11 +1,6 @@
 'use client'
 
 import Link from "next/link";
-// import { useState } from "react";
-// import { useForm, SubmitHandler } from "react-hook-form";
-// import { signInWithEmailAndPassword} from 'firebase/auth'
-// import { auth } from "@/app/firebaseConfig";
-// import { errorMonitor } from "events";
 import { useDeviosStore } from "@/app/store/deviosStore";
 import { FormEvent, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -29,8 +24,7 @@ export default function LoginForm() {
   
   
 
-  const handleSubmit = (e:FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = () => {
     signInWithPassword(email,password)
   }
   
