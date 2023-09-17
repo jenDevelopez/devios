@@ -1,6 +1,6 @@
 [
   {
-      "id": "",
+      "id": "1",
       "name": "Attack Of The Floppy Disks",
       "model": "AttackOfTheFloppyDisks",
       "description": "",
@@ -12,7 +12,7 @@
       ]
   },
   {
-      "id": "",
+      "id": "2",
       "name": "Come Back",
       "model": "ComeBack",
       "description": "descripcion",
@@ -24,6 +24,7 @@
       ]
   },
   {
+      "id":"3",
       "name": "Computer Mafia",
       "model": "ComputerMafia",
       "description": "descripcion",
@@ -35,7 +36,7 @@
       ]
   },
   {
-      "id": "uuidv4()",
+      "id": "4",
       "name": "Control Z Fusion",
       "description": "descripcion",
       "price": 19.95,
@@ -46,7 +47,7 @@
       ]
   },
   {
-      "id": "uuidv4()",
+      "id": "5",
       "name": "Cookies Accepted",
       "description": "descripcion",
       "price": 19.95,
@@ -57,7 +58,7 @@
       ]
   },
   {
-      "id": "uuidv4()",
+      "id": "6",
       "name": "CPU Heart",
       "description": "descripcion",
       "price": 19.95,
@@ -68,7 +69,7 @@
       ]
   },
   {
-      "id": "uuidv4()",
+      "id": "7",
       "name": "Digital Detox",
       "description": "descripcion",
       "price": 19.95,
@@ -79,7 +80,7 @@
       ]
   },
   {
-      "id": "uuidv4()",
+      "id": "8",
       "name": "Life is too short to remove USB safely",
       "description": "descripcion",
       "price": 19.95,
@@ -90,7 +91,7 @@
       ]
   },
   {
-      "id": "uuidv4()",
+      "id": "9",
       "name": "Need Memory",
       "description": "descripcion",
       "price": 19.95,
@@ -101,7 +102,7 @@
       ]
   },
   {
-      "id": "uuidv4()",
+      "id": "10",
       "name": "Please take your seats",
       "description": "descripcion",
       "price": 19.95,
@@ -112,7 +113,7 @@
       ]
   },
   {
-      "id": "uuidv4()",
+      "id": "11",
       "name": "Working From Home",
       "description": "descripcion",
       "price": 19.95,

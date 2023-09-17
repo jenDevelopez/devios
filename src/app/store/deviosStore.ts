@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { DeviosStoreTypes } from '@/interfaces/types';
 import { createUserWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider, signOut, signInWithEmailAndPassword } from 'firebase/auth'
 import { signInWithPopup } from "firebase/auth";
+import { v4 as uuidv4 } from 'uuid';
 import { products } from '@/data/data';
 import { auth } from '../firebaseConfig'
 import {
@@ -32,6 +33,8 @@ export const useDeviosStore = create<DeviosStoreTypes>((set,get) => ({
         price:0,
         image:[]
     },
+    lastProduct:0,
+    hasMoreProducts:true,
     activeComponent:null ,
 
 
@@ -40,8 +43,9 @@ export const useDeviosStore = create<DeviosStoreTypes>((set,get) => ({
     setOpen: () => {
         set((state) => ({ open: !state.open }))
     },
+
     setFullName: (value) => set({fullName: value}),
-    setActiveComponent: (component: React.ComponentType) => set({ activeComponent: component }),
+    setActiveComponent: (component: React.FC) => set({ activeComponent: component }),
     setUser: (user: any) => set({ user: user }),
 
 
@@ -166,12 +170,33 @@ export const useDeviosStore = create<DeviosStoreTypes>((set,get) => ({
         set({product: productData})
     },
 
-    fetchProduct: async (limit: number) => {
-        const res = await fetch("http://localhost:3000/data/data.json");
+    fetchProducts: async (limit: number) => {
+        const res = await fetch("http://localhost:3000/data.json");
         const json = await res.json();
-        const questions = json.slice(0, limit);
-        set({ products });
-      },
+        const lastProduct = get().lastProduct;
 
-      
+        const newProducts = json.slice(lastProduct, lastProduct + limit)
+        set({ products : [...get().products, ...newProducts] });
+        set({lastProduct: lastProduct + limit})
+        console.log(lastProduct)
+        
+        
+    },
+
+    
+    fetchMoreProducts: async(limit: number) => {
+        const res = await fetch("http://localhost:3000/data.json");
+        const json = await res.json();
+        const lastProduct = get().lastProduct;
+
+        const newProducts = json.slice(lastProduct, lastProduct + limit);
+        set({ products : [...get().products, ...newProducts] });
+        set({lastProduct: lastProduct + limit})
+        console.log(lastProduct)
+        if(lastProduct + limit >= json.length){
+            set({hasMoreProducts: false})
+            set({lastProduct: json.length - 1})
+        }
+    }
+  
 }))

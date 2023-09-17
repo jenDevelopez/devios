@@ -35,8 +35,14 @@ export interface DeviosStoreTypes {
   products: ProductType[];
   fullName: string;
   product: ProductType;
+  lastProduct: number
+  hasMoreProducts: boolean
   open: boolean;
   activeComponent: null | React.FC
+
+
+
+
 
   setEmail: (value: string) => void;
   setPassword: (value: string) => void;
@@ -55,7 +61,7 @@ export interface DeviosStoreTypes {
   logout: () => void;
   addNewUser: (name: string, email: string) => Promise<void>;
   findProduct: (id: string) => void;
-  fetchProduct: (limit: number) => void;
-
+  fetchProducts: (limit: number) => Promise<void>;
+  fetchMoreProducts: (limit: number) => Promise<void>;
 }
 
