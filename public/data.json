@@ -5,7 +5,7 @@
       "model": "AttackOfTheFloppyDisks",
       "description": "",
       "price": 19.95,
-      "image": [
+      "images": [
           "/Modelos-camisetas/AttackOfTheFloppyDisks/image_design.jpg",
           "/Modelos-camisetas/AttackOfTheFloppyDisks/model_shirt.jpg",
           "/Modelos-camisetas/AttackOfTheFloppyDisks/model_duo.jpg"
@@ -17,7 +17,7 @@
       "model": "ComeBack",
       "description": "descripcion",
       "price": "19.95",
-      "image": [
+      "images": [
           "/Modelos-camisetas/ComeBack/image_design.jpg",
           "/Modelos-camisetas/ComeBack/model_shirt.jpg",
           "/Modelos-camisetas/ComeBack/model_self.jpg"
@@ -29,7 +29,7 @@
       "model": "ComputerMafia",
       "description": "descripcion",
       "price": "19.95",
-      "image": [
+      "images": [
           "/Modelos-camisetas/ComputerMafia/image_design.jpg",
           "/Modelos-camisetas/ComputerMafia/model_shirt.jpg",
           "/Modelos-camisetas/ComputerMafia/model_self.jpg"
@@ -38,9 +38,10 @@
   {
       "id": "4",
       "name": "Control Z Fusion",
+      "model":"ControlZFusion",
       "description": "descripcion",
       "price": 19.95,
-      "image": [
+      "images": [
           "/Modelos-camisetas/ControlZFusion/image_design.jpg",
           "/Modelos-camisetas/ControlZFusion/model_shirt.jpg",
           "/Modelos-camisetas/ControlZFusion/model_self.jpg"
@@ -49,9 +50,10 @@
   {
       "id": "5",
       "name": "Cookies Accepted",
+      "model":"CookiesAccepted",
       "description": "descripcion",
       "price": 19.95,
-      "image": [
+      "images": [
           "/Modelos-camisetas/CookiesAccepted/image_design.jpg",
           "/Modelos-camisetas/CookiesAccepted/model_shirt.jpg",
           "/Modelos-camisetas/CookiesAccepted/model_self.jpg"
@@ -60,67 +62,73 @@
   {
       "id": "6",
       "name": "CPU Heart",
+      "model":"CPUHeart",
       "description": "descripcion",
       "price": 19.95,
-      "image": [
+      "images": [
           "/Modelos-camisetas/CPUHeart/image_design.jpg",
           "/Modelos-camisetas/CPUHeart/imagen_39051.jpg",
           "/Modelos-camisetas/CPUHeart/imagen_39052.jpg"
       ]
   },
   {
-      "id": "7",
-      "name": "Digital Detox",
-      "description": "descripcion",
-      "price": 19.95,
-      "image": [
-          "/Modelos-camisetas/DigitalDetox/image_design.jpg",
-          "/Modelos-camisetas/DigitalDetox/model_shirt.jpg",
-          "/Modelos-camisetas/DigitalDetox/model_duo.jpg"
-      ]
-  },
-  {
-      "id": "8",
-      "name": "Life is too short to remove USB safely",
-      "description": "descripcion",
-      "price": 19.95,
-      "image": [
-          "/Modelos-camisetas/LifeIsTooShortToRemoveUSBSafely/image_design.jpg",
-          "/Modelos-camisetas/LifeIsTooShortToRemoveUSBSafely/model_shirt.jpg",
-          "/Modelos-camisetas/LifeIsTooShortToRemoveUSBSafely/model_duo.jpg"
-      ]
-  },
-  {
-      "id": "9",
-      "name": "Need Memory",
-      "description": "descripcion",
-      "price": 19.95,
-      "image": [
-          "/Modelos-camisetas/NeedMemory/image_design.jpg",
-          "/Modelos-camisetas/NeedMemory/model_shirt.jpg",
-          "/Modelos-camisetas/NeedMemory/model_duo.jpg"
-      ]
-  },
-  {
-      "id": "10",
-      "name": "Please take your seats",
-      "description": "descripcion",
-      "price": 19.95,
-      "image": [
-          "/Modelos-camisetas/PleaseTakeYourSeats/image_design.jpg",
-          "/Modelos-camisetas/PleaseTakeYourSeats/model_shirt.jpg",
-          "/Modelos-camisetas/PleaseTakeYourSeats/model_duo.jpg"
-      ]
-  },
-  {
-      "id": "11",
-      "name": "Working From Home",
-      "description": "descripcion",
-      "price": 19.95,
-      "image": [
-          "/Modelos-camisetas/WorkingFromHome/image_design.jpg",
-          "/Modelos-camisetas/WorkingFromHome/model_shirt.jpg",
-          "/Modelos-camisetas/WorkingFromHome/model_duo.jpg"
-      ]
-  }
+    "id": "7",
+    "name": "Digital Detox",
+    "model": "DigitalDetox",
+    "description": "descripcion",
+    "price": 19.95,
+    "images": [
+       "/Modelos-camisetas/DigitalDetox/image_design.jpg",
+       "/Modelos-camisetas/DigitalDetox/model_shirt.jpg",
+       "/Modelos-camisetas/DigitalDetox/model_duo.jpg"
+    ]
+ },
+ {
+    "id": "8",
+    "name": "Life is too short to remove USB safely",
+    "model": "LifeistooshorttoremoveUSBsafely",
+    "description": "descripcion",
+    "price": 19.95,
+    "images": [
+       "/Modelos-camisetas/LifeIsTooShortToRemoveUSBSafely/image_design.jpg",
+       "/Modelos-camisetas/LifeIsTooShortToRemoveUSBSafely/model_shirt.jpg",
+       "/Modelos-camisetas/LifeIsTooShortToRemoveUSBSafely/model_duo.jpg"
+    ]
+ },
+ {
+    "id": "9",
+    "name": "Need Memory",
+    "model": "NeedMemory",
+    "description": "descripcion",
+    "price": 19.95,
+    "images": [
+       "/Modelos-camisetas/AttackOfTheFloppyDisks/image_design.jpg",
+       "/Modelos-camisetas/NeedMemory/model_shirt.jpg",
+       "/Modelos-camisetas/NeedMemory/model_duo.jpg"
+    ]
+ },
+ {
+    "id": "10",
+    "name": "Please take your seats",
+    "model": "Pleasetakeyourseats",
+    "description": "descripcion",
+    "price": 19.95,
+    "images": [
+       "/Modelos-camisetas/PleaseTakeYourSeats/image_design.jpg",
+       "/Modelos-camisetas/PleaseTakeYourSeats/model_shirt.jpg",
+       "/Modelos-camisetas/PleaseTakeYourSeats/model_duo.jpg"
+    ]
+ },
+ {
+    "id": "11",
+    "name": "Working From Home",
+    "model": "WorkingFromHome",
+    "description": "descripcion",
+    "price": 19.95,
+    "images": [
+       "/Modelos-camisetas/WorkingFromHome/image_design.jpg",
+       "/Modelos-camisetas/WorkingFromHome/model_shirt.jpg",
+       "/Modelos-camisetas/WorkingFromHome/model_duo.jpg"
+    ]
+ } 
 ]

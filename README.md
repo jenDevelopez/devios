@@ -7,7 +7,7 @@
 - Firebase
 - Tailwind & DaisyUI
 - Zustand
-
+- React Icons
 ### Aprendizajes durante este proyecto
 - Componentes de servidor y cliente
 - Rutas dinamicas con Next

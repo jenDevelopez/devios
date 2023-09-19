@@ -10,7 +10,7 @@ export default function FetchButton() {
     fetchMore(4);
   };
   return (
-    <div className="w-full flex justify-center">
+    <div className=" pb-4 w-full flex justify-center bg-gradient-to-r from-[#141A35] to-[#647A9C]">
       {hasMore ? (
         <button
           onClick={fetchMoreProducts}

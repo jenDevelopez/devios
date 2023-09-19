@@ -33,9 +33,9 @@ export default function DataProfile() {
   },[])
 
   return (
-    <>
+    <div className=" h-screen bg-binari bg-cover bg-center">
       <ProfileButtons />
       {activeComponent }
-    </>
+    </div>
   )
 }

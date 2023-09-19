@@ -14,9 +14,10 @@ export interface User {
 export interface ProductType {
   id: string;
   name: string;
+  model:string
   description: string;
   price: number;
-  image: string[];
+  images: string[];
 }
 
 
@@ -27,6 +28,12 @@ export interface Button {
   component: React.FC;
 }
 
+export interface ColorSelector {
+  value:string
+  label:string
+  colorClass:string
+}
+
 export interface DeviosStoreTypes {
   user: null | object;
   email: string;
@@ -34,13 +41,15 @@ export interface DeviosStoreTypes {
   isLogedIn: boolean;
   products: ProductType[];
   fullName: string;
-  product: ProductType;
   lastProduct: number
   hasMoreProducts: boolean
   open: boolean;
   activeComponent: null | React.FC
-
-
+  product: ProductType ;  
+  currentImageIndex: number
+  colors:ColorSelector[]
+  color: ColorSelector
+  sizeSelected:string
 
 
 
@@ -50,7 +59,8 @@ export interface DeviosStoreTypes {
   setOpen: (open: boolean) => void;
   setActiveComponent: (component: React.FC) => void;
   setUser: (user: User) => void;
-
+  setColor: (value:ColorSelector) => void;
+  setSizeSelected: (value:string) => void;
 
 
   createUserWithPassword: (email: string, password: string) => void;
@@ -63,5 +73,14 @@ export interface DeviosStoreTypes {
   findProduct: (id: string) => void;
   fetchProducts: (limit: number) => Promise<void>;
   fetchMoreProducts: (limit: number) => Promise<void>;
+  goToPreviousImage: () => void;
+  goToNextImage: () => void;
+  
 }
 
+export interface CarouselType {
+  images: string[];
+  currentImageIndex: number;
+  goToPreviousImage: () => void;
+  goToNextImage: () => void;
+}

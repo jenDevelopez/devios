@@ -1,22 +1,9 @@
 import { create } from 'zustand'
-import { DeviosStoreTypes } from '@/interfaces/types';
-import { createUserWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider, signOut, signInWithEmailAndPassword } from 'firebase/auth'
-import { signInWithPopup } from "firebase/auth";
-import { v4 as uuidv4 } from 'uuid';
-import { products } from '@/data/data';
-import { auth } from '../firebaseConfig'
-import {
-    collection,
-    addDoc,
-    updateDoc,
-    onSnapshot,
-    deleteDoc,
-    doc,
-    getDoc,
-    getDocs,
-  } from "firebase/firestore";
+import { DeviosStoreTypes, ProductType } from '@/interfaces/types';
+import { createUserWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, GithubAuthProvider, signOut, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
 
-import { profileButtons } from '@/data/botones';
+import { auth } from '../firebaseConfig'
+
 
 export const useDeviosStore = create<DeviosStoreTypes>((set,get) => ({
     user: null,
@@ -26,17 +13,30 @@ export const useDeviosStore = create<DeviosStoreTypes>((set,get) => ({
     open: false,
     products: [],
     fullName: '',
-    product:{
-        id:'',
-        name:'',
-        description:'',
-        price:0,
-        image:[]
-    },
     lastProduct:0,
     hasMoreProducts:true,
     activeComponent:null ,
-
+    product:{
+        id:'',
+        name:'',
+        model:'',
+        description:'',
+        price:0,
+        images:[]
+    },
+    currentImageIndex:0,
+    colors:[
+        { value: '#000', label: 'negro', colorClass: 'bg-black' },
+        { value: '#fff', label: 'blanco', colorClass: 'bg-white' },
+        { value: '##808080', label: 'gris', colorClass: 'bg-grey-500' },
+    ],
+    color: {
+        value:'black',
+        label:'black',
+        colorClass:'bg-black'
+    },
+    sizeSelected: '',
+ 
 
     setEmail: (value) => set({ email: value }),
     setPassword: (value: string) => set({ password: value }),
@@ -47,8 +47,8 @@ export const useDeviosStore = create<DeviosStoreTypes>((set,get) => ({
     setFullName: (value) => set({fullName: value}),
     setActiveComponent: (component: React.FC) => set({ activeComponent: component }),
     setUser: (user: any) => set({ user: user }),
-
-
+    setColor:(value) => set({color:value}),
+    setSizeSelected: (value) => set({sizeSelected:value}),
 
     createUserWithPassword: async (email: string, password: string) => {
         createUserWithEmailAndPassword(auth, email, password)
@@ -165,23 +165,30 @@ export const useDeviosStore = create<DeviosStoreTypes>((set,get) => ({
         
     },
 
-    findProduct: (id:string) => {
-        const productData =  products.find((product) => product.id === id)
-        set({product: productData})
-    },
+   
 
     fetchProducts: async (limit: number) => {
-        const res = await fetch("http://localhost:3000/data.json");
-        const json = await res.json();
-        const lastProduct = get().lastProduct;
+        try{
 
-        const newProducts = json.slice(lastProduct, lastProduct + limit)
-        set({ products : [...get().products, ...newProducts] });
-        set({lastProduct: lastProduct + limit})
-        console.log(lastProduct)
+            const res = await fetch("http://localhost:3000/data.json");
+            if(!res.ok){
+                throw new Error('Network response was not ok');
+            }
+            const json = await res.json();
+            const lastProduct = get().lastProduct;
+    
+            const newProducts = json.slice(lastProduct, lastProduct + limit)
+            const products = get().products
+            set({products: [...products, ...newProducts]})
+            set({lastProduct: lastProduct + limit})
+        }catch(error){
+            console.error(error)
+        }
+       
+    },  
         
         
-    },
+    
 
     
     fetchMoreProducts: async(limit: number) => {
@@ -197,6 +204,44 @@ export const useDeviosStore = create<DeviosStoreTypes>((set,get) => ({
             set({hasMoreProducts: false})
             set({lastProduct: json.length - 1})
         }
+    },
+
+    findProduct: async (id) => {
+        try {
+          const res = await fetch('http://localhost:3000/data.json');
+          const products = await res.json();
+          const productFound = products.find((product:ProductType) => product.model === id);
+          set({product:productFound})
+          return productFound;
+        } catch (error) {
+          console.error(error);
+          return null;
+        }
+    },
+
+    goToPreviousImage:() => {
+    const currentImageIndex = get().currentImageIndex;
+    if(currentImageIndex === 0){
+        return null
     }
+    else{
+        set({currentImageIndex: get().currentImageIndex - 1})
+
+    }
+    },
+
+    goToNextImage:() => {
+        const product = get().product;
+        const currentImageIndex = get().currentImageIndex;
+    if(currentImageIndex > product.images.length - 1){
+        return null
+    }else{
+        set({currentImageIndex: get().currentImageIndex + 1})
+
+    }
+    
+    },
+
+   
   
 }))
