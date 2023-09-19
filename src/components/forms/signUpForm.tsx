@@ -28,56 +28,54 @@ export default function SignUpForm() {
   }
 
   return (
-    <>
+    <div className="h-screen flex flex-col  bg-binari bg-cover bg-center">
       <h1 className="text-4xl text-center my-3">Registrate</h1>
       <form autoComplete="off" onSubmit={handleSubmit} className="flex flex-col gap-3 mt-6">
         {/* Nombre */}
-        <div className="w-3/4 mx-auto flex flex-col justify-start">
-          <label className="text-lg" htmlFor="name"></label>
+        <div className="w-3/4 mx-auto flex flex-col">
+          <label className="text-lg" htmlFor="name">Nombre</label>
           <input
             required
             type="text"
             onChange={(e) => setFullName(e.target.value)}
-            className="h-10 rounded-md px-2"
-            placeholder="Nombre"
+            className="h-8  px-2 bg-transparent border-b-[1px] border-b-white rounded-none"
+            
           />
         </div>
         {/* Email */}
         <div className="w-3/4 mx-auto flex flex-col justify-start">
-          <label className="text-lg" htmlFor="email"></label>
+          <label className="text-lg" htmlFor="email">Email</label>
           <input
             required
             onChange={(e) => setEmail(e.target.value)}
-            className="h-10 rounded-md px-2"
+            className="h-8  px-2 bg-transparent border-b-[1px] border-b-white rounded-none"
             type="email"
-            placeholder="Email"
           />
           <span className="block text-sm text-red-400 ml-2"></span>
         </div>
         {/* Password */}
         <div className="w-3/4 mx-auto flex flex-col justify-start relative">
-          <label htmlFor="password"></label>
+          <label htmlFor="password">Contraseña</label>
           <input
             type="password"
             required
             minLength={8}
             maxLength={12}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Contraseña"
-            className="rounded-md h-10 px-2"
+            onChange={(e) => setPassword(e.target.value)}  
+            className="h-8  px-2 bg-transparent border-b-[1px] border-b-white rounded-none"
           />
           <span className="block text-sm text-red-400 ml-2"></span>
         </div>
         <Link
-          className="self-end w-1/3 ml-auto mr-5 text-center text-sm text-purple-400 active:text-purple-950"
+          className="self-end w-2/3 ml-auto mr-5 text-center text-sm text-white"
           href="/login"
         >
-          ¿Ya tienes cuenta?
-          <span className="block">Inicia sesion</span>
+          ¿Ya tienes cuenta? Inicia sesion
+          <span className="block"></span>
         </Link>
-        <input className="btn btn-active w-1/2 mx-auto" type="submit" />
+        <button type="submit" className="btn w-1/2 font-bold mx-auto bg-[#B2D7FE] text-[#232496]">Enviar</button>
       </form>
-    </>
+    </div>
 
   );
 }

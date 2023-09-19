@@ -8,13 +8,12 @@ export default async function Login() {
 
   return (
     <>
-      <div className="h-screen flex flex-col bg-base-100">
+      <div className="h-screen flex flex-col  bg-binari bg-cover bg-center">
         <h1 className="text-2xl text-center font-bold my-3">Inicia sesión</h1>
         <div className=" w-full h-full mx-auto  justify-around md:w-2/3 lg:h-1/2">
            <div className="flex flex-col justify-center items-center gap-3 pt-5">
             <GoogleButton />
             <GithubButton />
-            {/* <FacebookButton /> */}
           </div>
           <div className="divider">O</div>
            <LoginForm />

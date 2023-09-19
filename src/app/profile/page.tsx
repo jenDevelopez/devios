@@ -1,6 +1,6 @@
 
 import React from 'react'
-import DataProfile from '@/components/profile/Profile'
+import DataProfile from '@/components/profile/ProfilePage'
 
 
 export default function Profile() {
@@ -8,7 +8,7 @@ export default function Profile() {
   
  
   return (
-  <div>
+  <div className='h-screen'>
     <DataProfile />
   </div>
   )

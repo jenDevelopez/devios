@@ -14,19 +14,24 @@ import { FiLogIn } from "react-icons/fi";
 import Footer from "../footer/Footer";
 import { nicoMoji } from "@/app/layout";
 import { useRouter } from "next/navigation";
+// import { useButtons } from "@/app/store/buttonsStore";
 
 export default function Navbar() {
   // const { data: session } = useSession()
 
-  const { open, setOpen, isLogedIn, logout } = useDeviosStore();
+  const { open,setOpen,isLogedIn, logout } = useDeviosStore();
+  // const {open, setOpen} = useButtons()
   const getSession = useDeviosStore((state) => state.checkAuthState);
   const router = useRouter()
   const handleLogout = () => {
     logout();
-    setOpen();
+    setOpen(false);
     router.replace('/login')
   };
 
+  const openMenu = () => {
+    setOpen(!open)
+  }
   useEffect(() => {
     getSession();
     console.log(isLogedIn)
@@ -36,7 +41,7 @@ export default function Navbar() {
       <nav
         className={`bg-[#B2D7FE] h-[10vh] text-white flex justify-between items-end pl-[20px] pr-[8px] `}
       >
-        <button className="pointer p-2 " onClick={setOpen}>
+        <button className="pointer p-2 " onClick={openMenu}>
           {!open && <GiHamburgerMenu className="text-2xl text-[#232946]" />}
         </button>
         {!open && (
@@ -84,7 +89,7 @@ export default function Navbar() {
       `}
         >
           <div className="flex justify-between w-full h-[10vh] items-end pl-[20px] pr-[8px]">
-            <button className="pointer p-2 " onClick={setOpen}>
+            <button className="pointer p-2 " onClick={openMenu}>
               <AiOutlineClose className="text-3xl font-extrabold text-white " />
             </button>
             <div className="w-1/2  p-2">
@@ -156,13 +161,13 @@ export default function Navbar() {
                     Cerrar sesion
                   </button>
                 ) : (
-                  <Link onClick={setOpen} href={"/login"} className="text-xl">
+                  <Link onClick={openMenu} href={"/login"} className="text-xl">
                     Iniciar sesion
                   </Link>
                 )}
               </div>
               {!isLogedIn && (
-                <Link href="/login" onClick={setOpen}>
+                <Link href="/login" onClick={openMenu}>
                   <AiOutlineRight className="text-xl" />
                 </Link>
               )}
