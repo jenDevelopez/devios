@@ -38,7 +38,7 @@ function ProductPage({ model }: { model: string }) {
   console.log(cart)
   return (
     <div className="h-screen bg-binari bg-cover bg-center  ">
-      {/* En el carrusel a veces se carga y a veces nogi */}
+      {/* En el carrusel a veces se carga y a veces no */}
       {/* <Carrusel images={product.images} currentImageIndex={currrentIndexImage} goToNextImage={goToNextImage} goToPreviousImage={goToPrevImage}/> */}
       <div className="flex justify-center py-2 font-semibold">
         <p>{product.name}</p>
