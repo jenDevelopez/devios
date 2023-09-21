@@ -16,7 +16,7 @@
       "name": "Come Back",
       "model": "ComeBack",
       "description": "descripcion",
-      "price": "19.95",
+      "price": 19.95,
       "images": [
           "/Modelos-camisetas/ComeBack/image_design.jpg",
           "/Modelos-camisetas/ComeBack/model_shirt.jpg",
@@ -28,7 +28,7 @@
       "name": "Computer Mafia",
       "model": "ComputerMafia",
       "description": "descripcion",
-      "price": "19.95",
+      "price": 19.95,
       "images": [
           "/Modelos-camisetas/ComputerMafia/image_design.jpg",
           "/Modelos-camisetas/ComputerMafia/model_shirt.jpg",

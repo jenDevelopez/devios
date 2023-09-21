@@ -14,27 +14,27 @@ import { FiLogIn } from "react-icons/fi";
 import Footer from "../footer/Footer";
 import { nicoMoji } from "@/app/layout";
 import { useRouter } from "next/navigation";
-// import { useButtons } from "@/app/store/buttonsStore";
+import { PiShoppingCartSimple } from "react-icons/pi";
 
 export default function Navbar() {
-  // const { data: session } = useSession()
 
-  const { open,setOpen,isLogedIn, logout } = useDeviosStore();
-  // const {open, setOpen} = useButtons()
+  const { open, setOpen, isLogedIn, logout } = useDeviosStore();
   const getSession = useDeviosStore((state) => state.checkAuthState);
-  const router = useRouter()
+  const cart = useDeviosStore((state) => state.cart);
+  const quantity = cart.length;
+  const router = useRouter();
   const handleLogout = () => {
     logout();
     setOpen(false);
-    router.replace('/login')
   };
 
   const openMenu = () => {
-    setOpen(!open)
-  }
+    setOpen(!open);
+  };
+
   useEffect(() => {
     getSession();
-    console.log(isLogedIn)
+    console.log(isLogedIn);
   }, [open, isLogedIn, getSession]);
   return (
     <>
@@ -63,20 +63,28 @@ export default function Navbar() {
                 />
               </Link>
             ) : (
-              <Link href="/login">
-                <BiUserCircle
-                  className={`text-2xl ${
-                    open ? "text-white" : "text-[#232946]"
-                  } `}
-                />
-              </Link>
+             
+                <Link href={"/login"}>
+                  <BiUserCircle
+                    className={`text-2xl ${
+                      open ? "text-white" : "text-[#232946]"
+                    } `}
+                  />
+                </Link>
+             
             )}
             <Link href="/cart">
-              <BiCart
+              <PiShoppingCartSimple
                 className={`text-2xl ${
-                  open ? "text-white" : "text-[#232946]"
+                  open ? "text-white" : "text-[#232946] relative"
                 } `}
               />
+
+              {quantity > 0 && (
+                <p className="absolute top-6 right-[7px] text-[#FF0000]  font-bold text-xs p-1 rounded-full">
+                  {quantity}
+                </p>
+              )}
             </Link>
           </div>
         </div>
