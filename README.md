@@ -13,5 +13,6 @@
 - Rutas dinamicas con Next
 - Estado global
 - Conexion con bases de datos
+- Local storage con zustand
 
 ![Mockup de la aplicación](./public/mockup.jpg)

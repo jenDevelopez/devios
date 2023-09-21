@@ -7,12 +7,11 @@ import { useRouter } from "next/navigation";
 
 export default function SignUpForm() {
   const router = useRouter()
-  const {signUp,setEmail,setPassword,addNewUser,setFullName} = useDeviosStore(state => ({
+  const {signUp,setEmail,setPassword,setFullName} = useDeviosStore(state => ({
     signUp: state.createUserWithPassword, 
     setEmail: state.setEmail, 
     setPassword: state.setPassword, 
     signInWithPassword:state.signInWithPassword,
-    addNewUser:state.addNewUser,
     setFullName:state.setFullName
   }))
 
@@ -51,7 +50,6 @@ export default function SignUpForm() {
             className="h-8  px-2 bg-transparent border-b-[1px] border-b-white rounded-none"
             type="email"
           />
-          <span className="block text-sm text-red-400 ml-2"></span>
         </div>
         {/* Password */}
         <div className="w-3/4 mx-auto flex flex-col justify-start relative">
@@ -64,14 +62,14 @@ export default function SignUpForm() {
             onChange={(e) => setPassword(e.target.value)}  
             className="h-8  px-2 bg-transparent border-b-[1px] border-b-white rounded-none"
           />
-          <span className="block text-sm text-red-400 ml-2"></span>
+         
         </div>
         <Link
           className="self-end w-2/3 ml-auto mr-5 text-center text-sm text-white"
           href="/login"
         >
           ¿Ya tienes cuenta? Inicia sesion
-          <span className="block"></span>
+         
         </Link>
         <button type="submit" className="btn w-1/2 font-bold mx-auto bg-[#B2D7FE] text-[#232496]">Enviar</button>
       </form>

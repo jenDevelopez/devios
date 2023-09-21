@@ -1,16 +1,20 @@
 import { CarouselType } from '@/interfaces/types'
 import Image from 'next/image'
 import {AiOutlineRight, AiOutlineLeft} from 'react-icons/ai'
-
+import { useEffect } from 'react'
 
 export default function Carousel({images,currentImageIndex,goToNextImage,goToPreviousImage}:CarouselType) {
-  console.log(`/${images[currentImageIndex]}`)
+  
+  
+
+
+    
   
   return (
     <div className="relative">
     <div className="overflow-hidden w-full h-64 md:h-96">
       <Image
-        src={`${images[0]}`}
+        src={`${images[currentImageIndex]}`}
         alt={`image ${currentImageIndex + 1}`}
         width={300}
         height={300}
